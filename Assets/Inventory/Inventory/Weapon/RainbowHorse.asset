@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c3c89f5ad29e13418a27cb4b8604457, type: 3}
+  m_Name: RainbowHorse
+  m_EditorClassIdentifier: 
+  type: 1
+  MpMode: 0
+  weightedRandomScheduling: 0
+  weaponMuiltipleMode: 0
+  bullet: {fileID: 447067077551776342, guid: 2f24b8e1be4e0cb41ac37426dfc9424d, type: 3}
+  laserEnd: {fileID: 4783154501066754092, guid: d506b7af1c38a19449d9e742d58dcf31, type: 3}
+  weaponImage: {fileID: 2562580688211156394, guid: 8424db16fce78b04ca75b230b9cc9174, type: 3}
+  weaponAnimator: {fileID: 9100000, guid: aa4247f2c6df6bc44a3f459a612b32e4, type: 2}
+  weaponName: "\u95F9\u809A\u5B50\u7684\u5F69\u8679\u9A6C"
+  weaponDescription: "\u5B57\u9762\u610F\u601D\uFF0C\u5E73\u5E73\u65E0\u5947\u7684\u62C9\u809A\u5B50\u7684\u5F69\u8679\u9A6C\u800C\u5DF2\u3002"
+  critChance: 0.5
+  critDamage: 2
+  damage: 3
+  scatteringAngle: 0
+  shootingGap: 0
+  shootTimes: 0
+  continuousShootingGap: 0
+  bulletCount: 0
+  MpNeed: 1
+  gunDistanceForLaser: 0.77
+  laserBulletEndLength: 0.433
+  laserDamageGap: 0.4

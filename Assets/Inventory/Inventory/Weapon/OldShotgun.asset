@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c3c89f5ad29e13418a27cb4b8604457, type: 3}
+  m_Name: OldShotgun
+  m_EditorClassIdentifier: 
+  type: 0
+  MpMode: 0
+  weightedRandomScheduling: 1
+  weaponMuiltipleMode: 0
+  bullet: {fileID: 1218163700237137630, guid: c8330071c46dd3a49a23e16842f03b93, type: 3}
+  weaponImage: {fileID: 1759098814782857988, guid: b2cf200614bdc944081a2b4d18b05f50, type: 3}
+  weaponAnimator: {fileID: 9100000, guid: 85a9ca6d885b3944b971bd789af3c2a3, type: 2}
+  weaponName: "\u8001\u65E7\u7684\u9730\u5F39\u67AA"
+  weaponDescription: "\u5B9D\u5200\u672A\u8001\uFF0C\u8FD9\u628A\u67AA\u8FD8\u662F\u5F88\u66B4\u529B\u3002"
+  critChance: 0.3
+  critDamage: 2
+  damage: 3
+  scatteringAngle: 9
+  shootingGap: 1.2
+  shootTimes: 1
+  continuousShootingGap: 0.1
+  bulletCount: 5
+  MpNeed: 3

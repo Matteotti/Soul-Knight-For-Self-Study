@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c3c89f5ad29e13418a27cb4b8604457, type: 3}
+  m_Name: OldPistol
+  m_EditorClassIdentifier: 
+  type: 0
+  MpMode: 0
+  weightedRandomScheduling: 1
+  weaponMuiltipleMode: 1
+  bullet: {fileID: 1218163700237137630, guid: c8330071c46dd3a49a23e16842f03b93, type: 3}
+  laserEnd: {fileID: 0}
+  weaponImage: {fileID: -4635587171168334959, guid: 99911daf6749ac142b68f9f9f4609e5d, type: 3}
+  weaponAnimator: {fileID: 9100000, guid: 2fbf6c4397f64f44683941a73ab22b33, type: 2}
+  weaponName: "\u7834\u65E7\u7684\u624B\u67AA"
+  weaponDescription: "\u8FD9\u662F\u4E00\u628A\u7834\u65E7\u7684\u624B\u67AA\uFF0C\u7834\u65E7\uFF0C\u4F46\u662F\u53EF\u9760\u3002"
+  critChance: 0.3
+  critDamage: 2
+  damage: 3
+  scatteringAngle: 5
+  shootingGap: 0.5
+  shootTimes: 1
+  continuousShootingGap: 0.5
+  bulletCount: 1
+  MpNeed: 0
+  gunDistanceForLaser: 0
+  laserBulletEndLength: 0
+  laserDamageGap: 0
+  minCritChance: 0
+  minDamage: 0
+  minScatteringAngle: 0
+  fullChargeTime: 0
+  minBulletSpeed: 0
+  maxBulletSpeed: 0

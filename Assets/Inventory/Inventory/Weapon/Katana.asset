@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c3c89f5ad29e13418a27cb4b8604457, type: 3}
+  m_Name: Katana
+  m_EditorClassIdentifier: 
+  type: 3
+  MpMode: 0
+  weightedRandomScheduling: 0
+  weaponMuiltipleMode: 0
+  bullet: {fileID: 0}
+  laserEnd: {fileID: 0}
+  knife: {fileID: 2391101336420127213, guid: 88601bd2e8eebe64eab40f601f4146ad, type: 3}
+  weaponImage: {fileID: 21300000, guid: f5624b5f87fac2544b278915d67f820c, type: 3}
+  weaponAnimator: {fileID: 0}
+  weaponName: "\u6B66\u58EB\u5200"
+  weaponDescription: "\u4E1C\u6D0B\u5251\u5BA2\u7684\u6807\u51C6\u4F69\u5200\u3002"
+  critChance: 0.2
+  critDamage: 2
+  damage: 6
+  scatteringAngle: 0
+  shootingGap: 0.5
+  shootTimes: 1
+  continuousShootingGap: 0.5
+  bulletCount: 3
+  MpNeed: 0
+  gunDistanceForLaser: 0
+  laserBulletEndLength: 0
+  laserDamageGap: 0
+  minCritChance: 0
+  minDamage: 0
+  minScatteringAngle: 0
+  fullChargeTime: 0
+  minBulletSpeed: 0
+  maxBulletSpeed: 0
+  knifeDeltaX: 0.5
+  comboDelta: 0.2
+  knifeSpeed: 800
+  knifeScale: {x: 1.5, y: 1.5, z: 0}
