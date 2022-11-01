@@ -8,23 +8,31 @@ public class PlayerHPMPShield : MonoBehaviour
     public int HP;
     public int Shield;
     public int hurtDamage;
+    public int constantDamage;
+    public int constantMaxTime;
     public Player player;
     public GameObject nowDamageNum;
     public GameObject damageNum;
     public GameObject canvas;
     public GameObject HPWarning;
     public GameObject ShieldWarning;
+    public GameObject stateIcon;
     public Slider HPSlider, ShieldSlider;
     public Text HPText, ShieldText;
     public Sprite playerDead;
+    public Sprite poison;
+    public Sprite burn;
     public SpriteRenderer playerSpriteRenderer;
     public float changeSpeed;
     public float hurtTime;
     public float damageNumX;
     public float damageNumY;
     public float maxAllowedHurtTime;
+    public float maxAllowedCollisionIgnoreTime;
     public float recoverTimeMin;
     public float recoverTimeGap;
+    public float constantDamageTimeGap;
+    public bool allowHurt;
     private void Start()
     {
         HP = player.fullHP;
@@ -76,6 +84,43 @@ public class PlayerHPMPShield : MonoBehaviour
     }
     void BeHit(int damage)
     {
+        if (allowHurt)
+        {
+            allowHurt = false;
+            GetHurt();
+            Invoke(nameof(Recover), hurtTime);
+            hurtDamage += damage;
+            CancelInvoke(nameof(ClearDamageNum));
+            Invoke(nameof(ClearDamageNum), maxAllowedHurtTime);
+            //ÊÜÉËÆ®×Ö
+            if (hurtDamage > 0)
+            {
+                if (nowDamageNum == null)
+                    nowDamageNum = Instantiate(damageNum, Camera.main.WorldToScreenPoint(transform.position) + new Vector3(damageNumX, damageNumY, 0), Quaternion.identity, canvas.transform);
+                nowDamageNum.GetComponent<Text>().text = hurtDamage.ToString();
+            }
+            if (Shield > damage)
+            {
+                Shield -= damage;
+            }
+            else
+            {
+                if (HP > damage - Shield)
+                    HP -= damage - Shield;
+                else
+                {
+                    HP = 0;
+                    Dead();
+                }
+                Shield = 0;
+            }
+            CancelInvoke(nameof(ShieldRecover));
+            InvokeRepeating(nameof(ShieldRecover), recoverTimeMin, recoverTimeGap);
+            Invoke(nameof(AllowHurt), maxAllowedCollisionIgnoreTime);
+        }
+    }
+    void BeHitByChemical(int damage)
+    {
         GetHurt();
         Invoke(nameof(Recover), hurtTime);
         hurtDamage += damage;
@@ -114,6 +159,7 @@ public class PlayerHPMPShield : MonoBehaviour
     void Recover()
     {
         playerSpriteRenderer.color = new Color(1, 1, 1, 1);
+        Physics2D.IgnoreLayerCollision(6, 11, false);
     }
     void ClearDamageNum()
     {
@@ -137,7 +183,7 @@ public class PlayerHPMPShield : MonoBehaviour
     }
     void DisplayWarning()
     {
-        if(HP < 0.5 * player.fullHP)
+        if (HP < 0.5 * player.fullHP)
         {
             HPWarning.SetActive(true);
         }
@@ -145,7 +191,7 @@ public class PlayerHPMPShield : MonoBehaviour
         {
             HPWarning.SetActive(false);
         }
-        if(Shield <= 2)
+        if (Shield <= 2)
         {
             ShieldWarning.SetActive(true);
         }
@@ -158,5 +204,64 @@ public class PlayerHPMPShield : MonoBehaviour
     {
         Destroy(this);
         Destroy(nowDamageNum);
+    }
+    void AllowHurt()
+    {
+        allowHurt = true;
+    }
+    void UpdateDamage(int data)
+    {
+        constantDamage = data;
+    }
+    void UpdateTimeGap(float data)
+    {
+        constantDamageTimeGap = data;
+    }
+    void UpdateTimes(int data)
+    {
+        constantMaxTime = data;
+    }
+    void GetPoisoned()
+    {
+        for(int i = 0; i < constantMaxTime; i++)
+        {
+            if (i == constantMaxTime - 1)
+                Invoke(nameof(HideIcon), (i + 1) * constantDamageTimeGap);
+            Invoke(nameof(HurtByPoison), (i + 1) * constantDamageTimeGap);
+        }
+    }
+    void HurtByPoison()
+    {
+        BeHitByChemical(constantDamage);
+    }
+    void GetBurned()
+    {
+        for (int i = 0; i < constantMaxTime; i++)
+        {
+            if (i == constantMaxTime - 1)
+                Invoke(nameof(HideIcon), (i + 1) * constantDamageTimeGap);
+            Invoke(nameof(HurtByBurned), (i + 1) * constantDamageTimeGap);
+        }
+    }
+    void HurtByBurned()
+    {
+        BeHitByChemical(constantDamage);
+    }
+    void ShowIcon(EnemyBullet.CritType type)
+    {
+        stateIcon.SetActive(true);
+        switch (type)
+        {
+            case EnemyBullet.CritType.poison:
+                stateIcon.GetComponent<SpriteRenderer>().sprite = poison;
+                break;
+            case EnemyBullet.CritType.burn:
+                stateIcon.GetComponent<SpriteRenderer>().sprite = burn;
+                break;
+        }
+    }
+    void HideIcon()
+    {
+        stateIcon.SetActive(false);
     }
 }

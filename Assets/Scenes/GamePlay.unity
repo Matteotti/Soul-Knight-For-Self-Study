@@ -2392,6 +2392,7 @@ Transform:
   - {fileID: 1158932513}
   - {fileID: 556099976}
   - {fileID: 1693447034}
+  - {fileID: 1650282455}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2402,7 +2403,7 @@ CapsuleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 476719957}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 6200000, guid: 06279939e5b599b4a8e7126466746bb5, type: 2}
   m_IsTrigger: 0
@@ -2460,25 +2461,33 @@ MonoBehaviour:
   HP: 0
   Shield: 0
   hurtDamage: 0
+  constantDamage: 0
+  constantMaxTime: 0
   player: {fileID: 11400000, guid: d52a4e3e80fb79545bdbf3ad088f04a5, type: 2}
   nowDamageNum: {fileID: 0}
   damageNum: {fileID: 2292972889621762167, guid: ac74c93d928ae314dae976af18894bfb, type: 3}
   canvas: {fileID: 458305308}
   HPWarning: {fileID: 163590958}
   ShieldWarning: {fileID: 926876114}
+  stateIcon: {fileID: 1650282454}
   HPSlider: {fileID: 818440111}
   ShieldSlider: {fileID: 937042328}
   HPText: {fileID: 247390517}
   ShieldText: {fileID: 1525824457}
   playerDead: {fileID: -7232600524240232993, guid: 42cab7be43df64546b06b4bb7731474d, type: 3}
+  poison: {fileID: 8508007018911726510, guid: 5fe4a12efd6064d4aad2dc1f1682c5b5, type: 3}
+  burn: {fileID: -9073701031221817971, guid: 5fe4a12efd6064d4aad2dc1f1682c5b5, type: 3}
   playerSpriteRenderer: {fileID: 0}
   changeSpeed: 10
   hurtTime: 0.25
   damageNumX: 10
   damageNumY: 50
   maxAllowedHurtTime: 0.5
+  maxAllowedCollisionIgnoreTime: 0.5
   recoverTimeMin: 3
   recoverTimeGap: 1.5
+  constantDamageTimeGap: 0
+  allowHurt: 1
 --- !u!114 &476719965
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37641,6 +37650,88 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1650282454
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1650282455}
+  - component: {fileID: 1650282456}
+  m_Layer: 0
+  m_Name: StateIcon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1650282455
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1650282454}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.166, y: 1.195, z: 0}
+  m_LocalScale: {x: 5.0213, y: 5.0213, z: 5.0213}
+  m_Children: []
+  m_Father: {fileID: 476719960}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &1650282456
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1650282454}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: -1201958317
+  m_SortingLayer: 5
+  m_SortingOrder: 0
+  m_Sprite: {fileID: -9073701031221817971, guid: 5fe4a12efd6064d4aad2dc1f1682c5b5, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 0.18, y: 0.18}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &1651169236
 GameObject:
   m_ObjectHideFlags: 0
@@ -49653,6 +49744,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 476719957}
+    - target: {fileID: 2186282758801587318, guid: 55bac130ead429d4aada0ec5fc77620a, type: 3}
+      propertyPath: grabForce
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 6633680326709738883, guid: 55bac130ead429d4aada0ec5fc77620a, type: 3}
       propertyPath: player
       value: 

@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 2775256535239280231, guid: a2d7d1be509b75040af77ae1187c01d8, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.5935766, g: 1, b: 0.5613208, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -159,9 +159,14 @@ MonoBehaviour:
   sinCosAngle: 0
   stopTime: 0
   sonBulletSpeed: 0
+  sonBulletMinSpeed: 0
+  sonBulletDestroyTime: 0
+  constantDamageTimeGap: 1.5
   damageToken: 3
   splitNum: 0
   sonBulletDamage: 0
+  constantTimes: 3
+  constantDamage: 1
   isSon: 0
   isCrit: 1
   isSpin: 0

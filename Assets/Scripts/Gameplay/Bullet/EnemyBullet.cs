@@ -35,9 +35,12 @@ public class EnemyBullet : MonoBehaviour
     public float sonBulletSpeed;
     public float sonBulletMinSpeed;
     public float sonBulletDestroyTime;
+    public float constantDamageTimeGap;
     public int damageToken;
     public int splitNum;
     public int sonBulletDamage;
+    public int constantTimes;
+    public int constantDamage;
     public bool isSon;
     public bool isCrit;
     public bool isSpin;
@@ -127,6 +130,23 @@ public class EnemyBullet : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             collision.gameObject.SendMessage("BeHit", damageToken, SendMessageOptions.DontRequireReceiver);
+            switch(bulletCritType)
+            {
+                case CritType.poison: 
+                    collision.gameObject.SendMessage("UpdateDamage", constantDamage, SendMessageOptions.DontRequireReceiver);
+                    collision.gameObject.SendMessage("UpdateTimes", constantTimes, SendMessageOptions.DontRequireReceiver);
+                    collision.gameObject.SendMessage("UpdateTimeGap", constantDamageTimeGap, SendMessageOptions.DontRequireReceiver);
+                    collision.gameObject.SendMessage("ShowIcon", bulletCritType, SendMessageOptions.DontRequireReceiver);
+                    collision.gameObject.SendMessage("GetPoisoned", SendMessageOptions.DontRequireReceiver);
+                    break;
+                case CritType.burn:
+                    collision.gameObject.SendMessage("UpdateDamage", constantDamage, SendMessageOptions.DontRequireReceiver);
+                    collision.gameObject.SendMessage("UpdateTimes", constantTimes, SendMessageOptions.DontRequireReceiver);
+                    collision.gameObject.SendMessage("UpdateTimeGap", constantDamageTimeGap, SendMessageOptions.DontRequireReceiver);
+                    collision.gameObject.SendMessage("ShowIcon", bulletCritType, SendMessageOptions.DontRequireReceiver);
+                    collision.gameObject.SendMessage("GetBurned", SendMessageOptions.DontRequireReceiver);
+                    break;
+            }
         }
     }
     public void Destroy()

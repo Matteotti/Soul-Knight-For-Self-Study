@@ -138,10 +138,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4abf1ccab971fc04f80b66f94e79b6e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletCritType: 0
+  bulletCritType: 4
   rb: {fileID: 0}
   bullet: {fileID: 3876996189204906471, guid: ccb536617c09a6a46816b932314853aa, type: 3}
   player: {fileID: 0}
+  up: {x: 0, y: 0, z: 0}
+  right: {x: 0, y: 0, z: 0}
   bulletSpeed: 10
   minBulletSpeed: 1
   targetTimeGap: 0.03
@@ -152,14 +154,25 @@ MonoBehaviour:
   spinSpeed: 0
   selfDestroyTime: 0
   dirChangeSpeed: 0
+  sinCosSpeed: 0
+  sinCosChangeSpeed: 0
+  sinCosAngle: 0
+  stopTime: 0
+  sonBulletSpeed: 3
+  sonBulletMinSpeed: 0
+  sonBulletDestroyTime: 0
+  constantDamageTimeGap: 0
   damageToken: 3
   splitNum: 0
   sonBulletDamage: 0
-  sonBulletSpeed: 3
+  constantTimes: 0
+  constantDamage: 0
+  isSon: 0
   isCrit: 0
   isSpin: 0
   selfDestroy: 0
   trackPlayer: 0
+  autoStop: 0
   thisEnemyBulletType: 3
 --- !u!61 &9033239006598699596
 BoxCollider2D:

@@ -138,7 +138,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4abf1ccab971fc04f80b66f94e79b6e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletCritType: 0
+  bulletCritType: 4
   rb: {fileID: 0}
   bullet: {fileID: 5110475835666225112, guid: 1ad5de177668ef945ad1f49af4252380, type: 3}
   player: {fileID: 0}
@@ -161,9 +161,12 @@ MonoBehaviour:
   sonBulletSpeed: 8
   sonBulletMinSpeed: 0.6
   sonBulletDestroyTime: 4.5
+  constantDamageTimeGap: 0
   damageToken: 3
   splitNum: 3
   sonBulletDamage: 0
+  constantTimes: 0
+  constantDamage: 0
   isSon: 0
   isCrit: 0
   isSpin: 0
