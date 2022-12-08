@@ -164,7 +164,7 @@ MonoBehaviour:
   constantDamageTimeGap: 0
   damageToken: 3
   splitNum: 3
-  sonBulletDamage: 0
+  sonBulletDamage: 3
   constantTimes: 0
   constantDamage: 0
   isSon: 0

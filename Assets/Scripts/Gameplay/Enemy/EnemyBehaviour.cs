@@ -65,7 +65,7 @@ public class EnemyBehaviour : MonoBehaviour
         hurtDamage += damage;
         CancelInvoke(nameof(ClearDamageNum));
         Invoke(nameof(ClearDamageNum), maxAllowedHurtTime);
-        //ÊÜÉËÆ®×Ö
+        //å—ä¼¤é£˜å­—
         if (hurtDamage > 0)
         {
             if (nowDamageNum == null)
@@ -107,6 +107,7 @@ public class EnemyBehaviour : MonoBehaviour
             Destroy(nowCritText);
         if (nowDamageNum != null)
             Destroy(nowDamageNum);
+        Destroy(GetComponent<EnemyAttack>());
         Destroy(this);
     }
 }

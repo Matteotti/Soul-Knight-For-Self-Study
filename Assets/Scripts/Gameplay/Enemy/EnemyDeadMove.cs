@@ -1,3 +1,4 @@
+using Pathfinding;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,6 +12,7 @@ public class EnemyDeadMove : MonoBehaviour
     void OnEnable()
     {
         GetComponent<SpriteRenderer>().color = Color.white;
+        Destroy(GetComponent<AILerp>());
         rb = GetComponent<Rigidbody2D>();
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
         float angle = Random.Range(0, 2 * Mathf.PI);

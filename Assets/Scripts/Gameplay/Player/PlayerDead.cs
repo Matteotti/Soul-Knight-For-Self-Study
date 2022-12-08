@@ -9,6 +9,7 @@ public class PlayerDead : MonoBehaviour
     public float slowDown;
     private Rigidbody2D rb;
     public GameObject deadMenu;
+    public bool test;
     void OnEnable()
     {
         Destroy(transform.GetChild(0).gameObject);

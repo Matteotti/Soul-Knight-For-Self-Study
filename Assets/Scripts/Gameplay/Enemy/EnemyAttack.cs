@@ -14,13 +14,14 @@ public class EnemyAttack : MonoBehaviour
     private void Start()
     {
         enemyAnimator = GetComponent<Animator>();
+        //InvokeRepeating(nameof(StartAttack), 0, nowEnemy.attackGap);
     }
     void Attack()
     {
         float angle = Mathf.Atan((player.transform.position.y - transform.position.y) / (player.transform.position.x - transform.position.x)) * 180 / Mathf.PI;
         if (player.transform.position.x < transform.position.x)
             angle += 180;
-        if (fireWarning.activeSelf)
+        if (fireWarning != null && fireWarning.activeSelf)
             fireWarning.SetActive(false);
         if (nowEnemy.enemyFireMode == Enemy.AttackMode.BlueFlower)
             for (int i = 1; i <= nowEnemy.bulletNum; i++)
